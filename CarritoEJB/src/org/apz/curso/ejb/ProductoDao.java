@@ -11,6 +11,7 @@ public interface ProductoDao {
 	
 	void add(Producto producto);
 	void delete(int id);
+	void update(Producto pedido);
 	List<Producto> findAll();
 	Producto findById(int id);
 	

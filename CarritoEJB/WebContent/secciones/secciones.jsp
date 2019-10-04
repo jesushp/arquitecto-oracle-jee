@@ -24,7 +24,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>producto</th>
+        <th>seccion</th>
         <th>precio</th>
         <th>categoria</th>
         <th></th>
@@ -34,24 +34,17 @@
    
     <c:forEach var="pedido" items="${pedidos}" >
     	<tr>
-        <td>${pedido.idPedido}</td>
-        <td>${pedido.producto}</td>
-        <td>${pedido.precio}</td>
-        <td>${pedido.categoria}</td>
-        <td><a href="pedidos?action=delete&id=${pedido.idPedido}">Eliminar</a> | 
-        	<a href="pedidos?action=edit&id=${pedido.idPedido}">Editar</a>
+        <td>${seccion.idSeccion}</td>
+        <td>${seccion.seccion}</td>
+        <td>${seccion.responsable}</td>
+        <td><a href="pedidos?action=edit&id=${seccion.idSeccion}">Detalle</a>
         </td>
       </tr>
     </c:forEach>
     
     </tbody>
   </table>
-	
-    <div class="col-sm-10">
-		<a href="pedidos?action=edit" class="btn btn-info">Alta</a>
-		<!-- 
-		<a type="button" href='Controller?op=toEntrada' class="btn btn-default">Volver</a> -->
-	</div>
+    
 </div>
 
 </body>

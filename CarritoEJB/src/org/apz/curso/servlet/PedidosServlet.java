@@ -46,7 +46,6 @@ public class PedidosServlet extends HttpServlet {
 			System.err.println(e.getMessage());
 			request.setAttribute("error", e.getClass() + " : " +  e.getMessage());
 			request.getRequestDispatcher("error").forward(request, response);
-			//response.sendRedirect("error");
 		}
 		
 	}
@@ -61,6 +60,7 @@ public class PedidosServlet extends HttpServlet {
 	private void listAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Pedido> pedidos = pedidoDao.findAll();
 		request.setAttribute("pedidos", pedidos);
+		request.setAttribute("title", "Listado de pedidos");
 		request.getRequestDispatcher("pedidos/pedidos.jsp").forward(request, response);
 	}
 
@@ -69,18 +69,27 @@ public class PedidosServlet extends HttpServlet {
 		if ( id > 0) {
 			Pedido pedido = pedidoDao.findById(id);
 			request.setAttribute("pedido", pedido);
-		}	
+			request.setAttribute("title", "Edición de "+pedido.getProducto());
+		} else {
+			request.setAttribute("title", "Alta de pedidos");
+		}
+		
 		request.getRequestDispatcher("pedidos/form.jsp").forward(request, response);
 		
 	}
 	
 	private void saveAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id = Optional.ofNullable(request.getParameter("idPedido")).filter(i -> !i.isEmpty()).map(i-> Integer.valueOf(i)).orElse(0);
+		int id = Optional.ofNullable(request.getParameter("idPedido"))
+				.filter(i -> !i.isEmpty())
+				.map(i-> Integer.valueOf(i)).orElse(0);
 		
-		
-		Pedido pedido = new Pedido(id, request.getParameter("categoria"), Integer.parseInt(request.getParameter("precio")), request.getParameter("producto"));
-		pedidoDao.add(pedido);
+		Pedido pedido = new Pedido(id, request.getParameter("categoria"), Double.parseDouble(request.getParameter("precio")), request.getParameter("producto"));
+		if (id > 0) {
+			pedidoDao.update(pedido); 
+		} else {
+			pedidoDao.add(pedido);
+		}
 		listAction(request, response);
 	}
 

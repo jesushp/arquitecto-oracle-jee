@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Formulario de pedidos</title>
+<title>${title}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -20,7 +20,6 @@
 <jsp:include page="../includes/nav.jsp"></jsp:include>
 
 <div class="container">
-	<h1>Formulario de pedidos</h1>
 	<form action="pedidos?action=save" method="post">
 		<input type="hidden" name="idPedido" id="input" class="form-control" value="${pedido.idPedido}">
 		
@@ -34,7 +33,7 @@
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="precio">precio:</label>
-		    <input type="number" class="form-control" id="precio" name="precio" style="width:30%" value="${pedido.precio}" required>
+		    <input type="text" required class="form-control" id="precio" name="precio" style="width:30%" value="${pedido.precio}">
 		</div>
 		
 		<button type="submit" class="btn btn-default">Guardar</button>

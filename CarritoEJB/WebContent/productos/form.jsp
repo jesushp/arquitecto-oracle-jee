@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Formulario de pedidos</title>
+<title>${title}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -20,7 +20,6 @@
 <jsp:include page="../includes/nav.jsp"></jsp:include>
 
 <div class="container">
-	<h1>Formulario de productos</h1>
 	<form action="productos?action=save" method="post">
 		<input type="hidden" name="idPedido" id="input" class="form-control" value="${producto.idProducto}">
 	
@@ -34,7 +33,7 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label">Seccion:</label>
-			<select name="idSeccion" id="idSeccion" class="form-control" style="width:30%" required="required" value="${producto.seccion.idSeccion}" >
+			<select name="idSeccion" id="idSeccion" class="form-control" style="width:30%" required="required" >
 				<c:forEach items="${secciones}" var="seccion" >
 					<c:set var="selected" value="${seccion.idSeccion == producto.seccion.idSeccion ? 'selected' : ''}" />
 					<option value="${seccion.idSeccion}" ${selected}> ${seccion.seccion}</option>
@@ -44,7 +43,7 @@
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="precio">precio:</label>
-		    <input type="number" class="form-control" id="precio" name="precio" style="width:30%" required value="${producto.precio}" >
+		    <input type="text" class="form-control" id="precio" name="precio" style="width:30%" required value="${producto.precio}" >
 		</div>
 		
 		<button type="submit" class="btn btn-default">Guardar</button>

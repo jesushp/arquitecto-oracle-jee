@@ -63,6 +63,7 @@ public class ProductosServlet extends HttpServlet {
 	private void listAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Producto> productos = productoDao.findAll();
 		request.setAttribute("productos", productos);
+		request.setAttribute("title", "Listado de productos");
 		request.getRequestDispatcher("productos/productos.jsp").forward(request, response);
 	}
 
@@ -71,6 +72,9 @@ public class ProductosServlet extends HttpServlet {
 		if (id > 0) {
 			Producto producto = productoDao.findById(id);
 			request.setAttribute("producto", producto);
+			request.setAttribute("title", "Edición de "+ producto.getNombre());
+		} else {
+			request.setAttribute("title", "Alta de productos");
 		}
 		List<Seccion> secciones = seccionDao.findAll();
 		request.setAttribute("secciones", secciones);
@@ -82,11 +86,18 @@ public class ProductosServlet extends HttpServlet {
 		
 		Seccion seccion = seccionDao.findById(Integer.parseInt(request.getParameter("idSeccion")));
 		
-		int id = Optional.ofNullable(request.getParameter("idProducto")).filter(i -> !i.isEmpty()).map(i-> Integer.valueOf(i)).orElse(0);
+		int id = Optional.ofNullable(request.getParameter("idProducto"))
+				.filter(i -> !i.isEmpty())
+				.map(i-> Integer.valueOf(i)).orElse(0);
 		
-		Producto producto = new Producto(id, request.getParameter("descripcion"), seccion, request.getParameter("nombre"), Integer.parseInt(request.getParameter("precio")));
+		Producto producto = new Producto(id, request.getParameter("descripcion"), seccion, request.getParameter("nombre"), Double.parseDouble(request.getParameter("precio")));
 		
-		productoDao.add(producto);
+		if (id > 0) {
+			productoDao.update(producto);
+		} else {
+			productoDao.add(producto);
+		}
+		
 		listAction(request, response);
 	}
 	

@@ -12,8 +12,8 @@ public class ErrorServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response)  {
 		try {
+			request.setAttribute("title", "Página de error");
 			request.getRequestDispatcher("error.jsp").forward(request, response);
-	
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}

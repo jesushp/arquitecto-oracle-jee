@@ -31,10 +31,6 @@ public class PedidoDaoImpl implements PedidoDao {
 	@Override
 	public List<Pedido> findAll() {
 		return em.createNamedQuery("Pedido.findAll", Pedido.class).getResultList();
-		/*
-		String jpql = "Select p From Pedido p";
-		Query qr=em.createQuery(jpql);
-		return (List<Pedido>)qr.getResultList();*/
 	}
 
 	@Override
@@ -42,5 +38,9 @@ public class PedidoDaoImpl implements PedidoDao {
 		return  em.find(Pedido.class, id);
 	}
 
+	@Override
+	public void update(Pedido pedido) {
+		em.merge(pedido);
+	}
 
 }

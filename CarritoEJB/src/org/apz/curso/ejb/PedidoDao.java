@@ -10,8 +10,8 @@ import org.apz.curso.model.Pedido;
 public interface PedidoDao {
 	
 	void add(Pedido pedido);
-	void update(Pedido pedido);
 	void delete(int id);
+	void update(Pedido pedido);
 	List<Pedido> findAll();
 	Pedido findById(int id);
 	

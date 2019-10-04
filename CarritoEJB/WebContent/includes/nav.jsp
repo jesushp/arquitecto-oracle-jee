@@ -22,6 +22,6 @@
 <div class="jumbotron">
 	<div class="container">
 		<h1>Carrito de la compra</h1>
-		<p>Aprendiendo de EJB y JPA</p>
+		<p>Aprendiendo de EJB y JPA: ${title}</p>
 	</div>
 </div>
