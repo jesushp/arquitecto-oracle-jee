@@ -9,19 +9,23 @@
   	<module>hola</module>
   	<module>websockets</module>
   	
-  	<!-- Intro EJB 
-  	<module>../HolaEJB</module>-->
+  	<!-- Intro EJB -->
+  	<module>HolaEJB</module>
   	
-  	<!-- Intro EJB + JDBC + JNDI 
-  	<module>../ContactosEJB</module>-->
+  	<!-- Intro EJB + JDBC + JNDI -->
+  	<module>ContactosEJB</module>
   	
   	<!-- Intro EJB Singleton 
     <module>../SingletonEJB</module>-->
     
-    <!-- IoD EJB + persitencia  JPA 
-    <module>../AgendaEJB</module>-->
-    <!-- persitencia persitencia JPA 
-    <module>../AgendaJPA</module>-->
+    <!-- IoD EJB + persitencia  JPA -->
+    <module>AgendaEJB</module>
+    
+    <!-- persistencia persitencia JPA  -->
+    <module>AgendaJPA</module>
+    
+    <!-- carrito EJB  -->
+    <module>CarritoEJB</module>
     
   </modules>
   <properties>
