@@ -5,21 +5,38 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-  	<!-- Intro EJB -->
+  	<!-- Intro EJB --> 
   	<module>hola</module>
-  	<!-- Intro EJB -->
-  	<module>../HolaEJB</module>
+  	<module>websockets</module>
   	
-  	<!-- Intro EJB + JDBC + JNDI -->
-  	<module>../ContactosEJB</module>
+  	<!-- Intro EJB 
+  	<module>../HolaEJB</module>-->
   	
-  	<!-- Intro EJB Singleton -->
-    <module>../SingletonEJB</module>
+  	<!-- Intro EJB + JDBC + JNDI 
+  	<module>../ContactosEJB</module>-->
+  	
+  	<!-- Intro EJB Singleton 
+    <module>../SingletonEJB</module>-->
     
-    <!-- IoD EJB + persitencia  JPA -->
-    <module>../AgendaEJB</module>
-    <!-- persitencia persitencia JPA -->
-    <module>../AgendaJPA</module>
+    <!-- IoD EJB + persitencia  JPA 
+    <module>../AgendaEJB</module>-->
+    <!-- persitencia persitencia JPA 
+    <module>../AgendaJPA</module>-->
+    
   </modules>
-	
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  
 </project>
