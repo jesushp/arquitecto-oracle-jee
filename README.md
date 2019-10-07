@@ -1,6 +1,9 @@
 ## Curso de Oracle Javaee Arquitecto Aplicaciones Empresariales Experto
 
 
+[Certicaciones](https://github.com/arturisimo/arquitecto-oracle-jee/blob/master/certificaciones.md)
+
+
 **Módulo 1: Developing Applications for the Java EE 7 Platform** [+info](https://education.oracle.com/developing-applications-for-the-java-ee-7-platform/courP_8558)
 
 Implmentar aplicaciones que cumplan con la plataforma JEE7. Las tecnologías que se utilizans son:
