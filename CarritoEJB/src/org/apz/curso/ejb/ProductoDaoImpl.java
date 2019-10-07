@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apz.curso.model.Pedido;
 import org.apz.curso.model.Producto;
 
 /**
