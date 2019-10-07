@@ -7,4 +7,4 @@ La localización de un objeto de servicio JNDI es común a todos los clientes qu
 
 [Service Locator](http://www.juntadeandalucia.es/servicios/madeja/contenido/recurso/147)
 
-![Configuración Datasource en WildFly](/doc/dataSourceWildFly.png)
+![Configuración Datasource en WildFly](doc/dataSourceWildFly.png)
