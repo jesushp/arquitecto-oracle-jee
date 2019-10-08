@@ -20,8 +20,11 @@
 <jsp:include page="includes/nav.jsp"></jsp:include>
 
 <div class="container">
-	ERROR ${error }
+	<div class="alert alert-danger">
+		ERROR ${error}
+	</div>
 </div>
+
 </body>
 </html>
 
