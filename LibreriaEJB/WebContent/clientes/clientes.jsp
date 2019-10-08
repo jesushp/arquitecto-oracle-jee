@@ -37,7 +37,7 @@
         <td>${cliente.telefono}</td>
         <td>${cliente.dni}</td>
         <td>
-        	<a href="cuentas?action=list&id=${cliente.idCliente}">Ventas</a> | 
+        	<a href="cuentas?action=list&dni=${cliente.dni}">Cuentas</a> | 
         	<a href="ventas?action=list&id=${cliente.idCliente}">Ventas</a> | 
         	<a href="clientes?action=delete&id=${cliente.idCliente}">Eliminar</a> | 
         	<a href="clientes?action=edit&id=${cliente.idCliente}">Editar</a>

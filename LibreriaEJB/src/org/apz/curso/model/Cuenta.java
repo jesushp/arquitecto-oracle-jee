@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,7 +18,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="cuentas")
-@NamedQuery(name="Cuenta.findAll", query="SELECT c FROM Cuenta c")
+@NamedQueries({
+	@NamedQuery(name="Cuenta.findAll", query="SELECT c FROM Cuenta c"),
+	@NamedQuery(name="Cuenta.listByCliente", query="SELECT c FROM Cuenta c join c.clientes cs where cs.dni = :dni"),
+})
 public class Cuenta implements Serializable {
 	private static final long serialVersionUID = 1L;
 

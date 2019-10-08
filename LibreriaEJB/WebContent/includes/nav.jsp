@@ -15,6 +15,7 @@
           <ul class="nav navbar-nav">
           	<li><a href="libros">Libros</a></li>
             <li><a href="clientes">Clientes</a></li>
+            <li><a href="cerrar">Cerrar sesión</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

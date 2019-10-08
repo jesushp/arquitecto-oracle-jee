@@ -46,15 +46,17 @@ public class ClienteDaoImpl implements ClienteDao {
 		em.merge(cliente);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> listByCuenta(int numeroCuenta) {
-		Cuenta cuenta = em.find(Cuenta.class, numeroCuenta);
+		//Cuenta cuenta = em.find(Cuenta.class, numeroCuenta);
 		//return cuenta.getClientes();
 		Query query = em.createNamedQuery("Cliente.listByCuenta", Cliente.class); //.getResultList();
 		query.setParameter("numeroCuenta", numeroCuenta);
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> listByFechaMovimiento(Date fechaMovimiento) {
 		Query query = em.createNamedQuery("Cliente.listByFechaMovimiento", Cliente.class); //.getResultList();

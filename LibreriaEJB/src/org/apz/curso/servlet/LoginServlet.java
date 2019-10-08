@@ -26,14 +26,17 @@ public class LoginServlet extends HttpServlet {
 		try {	
 			String email = Optional.ofNullable(request.getParameter("email")).orElse("");
 			String password = Optional.ofNullable(request.getParameter("password")).orElse("");
+			HttpSession sesion = request.getSession();
 			
 			if (email.isEmpty() || password.isEmpty()) {
+				if (sesion.getAttribute("usuario")!=null) {
+					response.sendRedirect("libros");
+				}
+				
 				request.setAttribute("error", "");
 			} else {
 				
 				Usuario usuario = usuarioDao.getUsuario(email, password);
-				
-				HttpSession sesion=request.getSession();
 				sesion.setAttribute("usuario", usuario);
 				response.sendRedirect("libros");
 			
