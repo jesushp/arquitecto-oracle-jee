@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>${title}</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
     <c:forEach var="producto" items="${productos}" >
     	<tr>
         <td>${producto.idProducto}</td>
-        <td><a href="secciones?id=${producto.seccion.idSeccion}">${producto.seccion.seccion}</a></td>
+        <td><a href="secciones?id=${producto.seccion.idSeccion}&action=detail">${producto.seccion.seccion}</a></td>
         <td>${producto.precio}</td>
         <td>${producto.descripcion}</td>
         <td><a href="productos?action=delete&id=${producto.idProducto}">Eliminar</a> | 

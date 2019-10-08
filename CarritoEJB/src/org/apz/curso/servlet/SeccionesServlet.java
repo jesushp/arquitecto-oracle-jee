@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apz.curso.ejb.SeccionDao;
 import org.apz.curso.model.Seccion;
 
+@WebServlet("/secciones")
 public class SeccionesServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 876149051938421126L;
@@ -45,7 +47,7 @@ public class SeccionesServlet extends HttpServlet {
 		List<Seccion> productos = seccionDao.findAll();
 		request.setAttribute("productos", productos);
 		request.setAttribute("title", "Listado de productos");
-		request.getRequestDispatcher("seccion/secciones.jsp").forward(request, response);
+		request.getRequestDispatcher("secciones/secciones.jsp").forward(request, response);
 	}
 
 
