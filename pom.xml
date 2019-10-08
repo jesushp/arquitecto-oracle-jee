@@ -27,6 +27,9 @@
     <!-- carrito EJB  -->
     <module>CarritoEJB</module>
     
+    <!-- Probando relaciones entre entidades con JPA  -->
+    <module>LibreriaEJB</module>
+    
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
