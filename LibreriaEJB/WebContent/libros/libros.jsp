@@ -41,7 +41,8 @@
         <td>${libro.precio}</td>
         <td>${libro.paginas}</td>
         <td><a href="temas?id=${libro.tema.idTema}&action=detail">${libro.tema.tema}</a></td>
-        <td><a href="libros?action=delete&id=${libro.isbn}">Eliminar</a> | 
+        <td><a href="ventas?action=ask&isbn=${libro.isbn}&idCliente=${sessionScope.usuario.idCliente}">Hacer un pedido |
+        	<a href="libros?action=delete&id=${libro.isbn}">Eliminar</a> | 
         	<a href="libros?action=edit&id=${libro.isbn}">Editar</a>
         </td>
       </tr>
