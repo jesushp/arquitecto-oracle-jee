@@ -3,7 +3,7 @@ package org.apz.curso.ejb;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.apz.curso.model.Usuario;
 
@@ -18,9 +18,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
 	
 	@Override
 	public Usuario getUsuario(String email, String password) throws Exception {
-		Query q= em.createNamedQuery("Usuario.login", Usuario.class);
-		q.setParameter("email", email);
-		q.setParameter("password", password);
-		return (Usuario)q.getSingleResult();
+		TypedQuery<Usuario> query = em.createNamedQuery("Usuario.login", Usuario.class);
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		return query.getSingleResult();
 	}
 }

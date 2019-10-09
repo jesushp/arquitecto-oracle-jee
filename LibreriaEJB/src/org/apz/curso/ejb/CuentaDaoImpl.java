@@ -1,12 +1,11 @@
 package org.apz.curso.ejb;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.apz.curso.model.Cuenta;
 
@@ -45,10 +44,9 @@ public class CuentaDaoImpl implements CuentaDao {
 		em.merge(cliente);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cuenta> findByCliente(String dni) {
-		Query query = em.createNamedQuery("Cuenta.listByCliente", Cuenta.class); //.getResultList();
+		TypedQuery<Cuenta> query = em.createNamedQuery("Cuenta.listByCliente", Cuenta.class); //.getResultList();
 		query.setParameter("dni", dni);
 		return query.getResultList();
 	}

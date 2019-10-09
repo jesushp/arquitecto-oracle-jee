@@ -6,10 +6,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.apz.curso.model.Cliente;
-import org.apz.curso.model.Cuenta;
 
 /**
  * Session Bean implementation class ClienteDaoImpl
@@ -46,20 +45,18 @@ public class ClienteDaoImpl implements ClienteDao {
 		em.merge(cliente);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> listByCuenta(int numeroCuenta) {
 		//Cuenta cuenta = em.find(Cuenta.class, numeroCuenta);
 		//return cuenta.getClientes();
-		Query query = em.createNamedQuery("Cliente.listByCuenta", Cliente.class); //.getResultList();
+		TypedQuery<Cliente> query = em.createNamedQuery("Cliente.listByCuenta", Cliente.class); //.getResultList();
 		query.setParameter("numeroCuenta", numeroCuenta);
 		return query.getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> listByFechaMovimiento(Date fechaMovimiento) {
-		Query query = em.createNamedQuery("Cliente.listByFechaMovimiento", Cliente.class); //.getResultList();
+		TypedQuery<Cliente> query = em.createNamedQuery("Cliente.listByFechaMovimiento", Cliente.class); //.getResultList();
 		query.setParameter("fecha", fechaMovimiento);
 		return query.getResultList();
 	}
