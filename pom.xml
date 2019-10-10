@@ -33,6 +33,10 @@
     <!-- Probando MDB  -->
     <module>MensajeriaEJB</module>
     
+     <!-- Probando EJB Asincronos  -->
+      <module>async-ejb</module>
+    
+    
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
