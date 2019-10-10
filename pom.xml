@@ -30,6 +30,9 @@
     <!-- Probando relaciones entre entidades con JPA  -->
     <module>LibreriaEJB</module>
     
+    <!-- Probando MDB  -->
+    <module>MensajeriaEJB</module>
+    
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
