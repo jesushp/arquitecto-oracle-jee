@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/media-manager.css" rel="stylesheet">
+        
+    <title> Media Manager</title>
+  </head>
+  <body>
+       <div class="container">
+     <h1>Media Manager <small class="hidden-xs">- File Upload</small></h1>
+    
+    <form action="UploadServlet" enctype="multipart/form-data" method="POST"> 
+      <input type="file" name="file1"><br>
+      <input type="Submit" value="Upload" class="btn-primary"><br>
+    </form>
+      <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/web-media-manager">Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </body>
+  </body>
+</html>
