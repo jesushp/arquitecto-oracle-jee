@@ -7,7 +7,6 @@
   <modules>
   	<!-- Intro EJB --> 
   	<module>hola</module>
-  	<module>websockets</module>
   	
   	<!-- Intro EJB -->
   	<module>HolaEJB</module>
@@ -33,8 +32,12 @@
     <!-- Probando MDB  -->
     <module>MensajeriaEJB</module>
     
-     <!-- Probando EJB Asincronos  -->
-      <module>async-ejb</module>
+    <!-- Probando EJB Asincronos  -->
+    <module>async-ejb</module>
+    
+    <!--  proyectos oracle -->
+    <module>websockets</module>
+    <module>web-media-manager</module>
     
     
   </modules>
