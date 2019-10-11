@@ -15,6 +15,7 @@ public interface VentasService {
 	/** acceso a BBDD **/
 	List<Venta> listByCliente(int idCliente);
 	List<Venta> listAll();
+	Venta findById(int id);
 	
 }
 

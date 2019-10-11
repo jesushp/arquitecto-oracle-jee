@@ -34,8 +34,7 @@
     	<tr>
         <td>${tema.idTema}</td>
         <td>${tema.tema}</td>
-        <td><a href="temas?action=edit&id=${tema.idTema}">Detalle</a>
-        </td>
+        <td><a href="temas?action=detail&id=${tema.idTema}">Detalle</a></td>
       </tr>
     </c:forEach>
     

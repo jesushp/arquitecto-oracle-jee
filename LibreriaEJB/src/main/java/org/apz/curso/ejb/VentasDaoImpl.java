@@ -49,4 +49,9 @@ public class VentasDaoImpl implements VentasDao {
 		em.persist(venta);
 	}
 
+	@Override
+	public Venta findById(int id) {
+		return em.find(Venta.class, id);
+	}
+
 }

@@ -29,19 +29,21 @@
 		</div>
 		
 		
+		<c:set var="disabled" value="${edit ? '' : 'disabled'}" />
+		
 		<div class="form-group">
 			<label class="control-label">titulo:</label>
-			<input type="text" name="titulo" required class="form-control" style="width:30%" placeholder="titulo" autocomplete="name" value="${libro.titulo}"  />
+			<input type="text" name="titulo" ${disabled} required class="form-control" style="width:30%" placeholder="titulo" autocomplete="name" value="${libro.titulo}"  />
 		</div>
 		<div class="form-group">
 			<label class="control-label">autor:</label>
-			<input type="text" name="autor" required class="form-control" style="width:30%" placeholder="autor" autocomplete="name" value="${libro.autor}" />
+			<input type="text" name="autor" ${disabled} required class="form-control" style="width:30%" placeholder="autor" autocomplete="name" value="${libro.autor}" />
 		</div>
 		<div class="form-group">
 			<label class="control-label">Temas:</label>
-			<select name="idTema" id="idTema" class="form-control" style="width:30%" required="required" >
+			<select name="idTema" id="idTema" ${disabled} class="form-control" style="width:30%" required="required" >
 				<c:forEach items="${temas}" var="tema" >
-					<c:set var="selected" value="${tema.idTema == libro.temas.idTema ? 'selected' : ''}" />
+					<c:set var="selected" value="${tema.idTema == libro.tema.idTema ? 'selected' : ''}" />
 					<option value="${tema.idTema}" ${selected}> ${tema.tema}</option>
 				</c:forEach>
 			</select>
@@ -49,14 +51,14 @@
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="precio">precio:</label>
-		    <input type="number" required class="form-control" id="precio" name="precio" min="0" max="100" step=".01" style="width:30%" value="${libro.precio}">
+		    <input type="number" required ${disabled} class="form-control" id="precio" name="precio" min="0" max="100" step=".01" style="width:30%" value="${libro.precio}">
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="paginas">paginas:</label>
-		    <input type="number" required class="form-control" id="paginas" name="paginas" style="width:30%" value="${libro.paginas}">
+		    <input type="number" required ${disabled} class="form-control" id="paginas" name="paginas" style="width:30%" value="${libro.paginas}">
 		</div>
 		
-		<button type="submit" class="btn btn-default">Guardar</button>
+		<button type="submit" ${disabled} class="btn btn-default">Guardar</button>
 		<a type="button" href="libros" class="btn btn-default">Volver</a>
 		
 	</form>

@@ -90,4 +90,10 @@ public class VentasServiceImpl implements VentasService {
 	public List<Venta> listAll() {
 		return ventasDao.listAll();
 	}
+
+
+	@Override
+	public Venta findById(int id) {
+		return ventasDao.findById(id);
+	}
 }

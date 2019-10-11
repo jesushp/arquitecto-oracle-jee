@@ -32,8 +32,11 @@ public class ClienteServlet extends HttpServlet {
 			System.out.println(test);
 			
 			switch (action) {
+			case "detail":
+				editAction(id, false, request, response);
+				break;
 			case "edit":
-				editAction(id, request, response);
+				editAction(id, true, request, response);
 				break;
 			case "delete":
 				deleteAction(id, request, response);
@@ -66,10 +69,11 @@ public class ClienteServlet extends HttpServlet {
 	}
 
 
-	private void editAction(int id, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void editAction(int id, boolean edit, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (id > 0) {
 			Cliente cliente = clienteDao.findById(id);
 			request.setAttribute("cliente", cliente);
+			request.setAttribute("edit", edit);
 			request.setAttribute("title", "Edición de "+ cliente.getEmail());
 		} else {
 			request.setAttribute("title", "Alta de clientes");
@@ -84,7 +88,7 @@ public class ClienteServlet extends HttpServlet {
 				.filter(i -> !i.isEmpty())
 				.map(i-> Integer.valueOf(i)).orElse(0);
 		
-		Cliente cliente = new Cliente(id, request.getParameter("email"), request.getParameter("password"), Integer.parseInt(request.getParameter("telefono")), request.getParameter("dni"));
+		Cliente cliente = new Cliente(id, request.getParameter("email"), request.getParameter("usuario"), request.getParameter("password"), Integer.parseInt(request.getParameter("telefono")), request.getParameter("dni"));
 		
 		if (id > 0) {
 			clienteDao.update(cliente);

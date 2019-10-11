@@ -60,7 +60,7 @@ public class TemasServlet extends HttpServlet {
 		Tema tema = temaDao.findById(id);
 		tema.setLibros(libroDao.findByTema(id));
 		request.setAttribute("tema", tema);
-		request.setAttribute("title", "Detalle de " + tema.getTema());
+		request.setAttribute("title", "Detalle del tema \"" + tema.getTema()+"\"");
 		request.getRequestDispatcher("temas/detail.jsp").forward(request, response);
 		
 	}

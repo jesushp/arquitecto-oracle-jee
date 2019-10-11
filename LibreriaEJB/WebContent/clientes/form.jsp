@@ -25,21 +25,23 @@
 		
 		<div class="form-group">
 			<label class="control-label">usuario:</label>
-			<input type="text" name="usuario" required class="form-control" style="width:30%"  value="${cliente.usuario}" autocomplete="name"/>
+			<input type="text" ${edit ? '' : 'disabled' } name="usuario" required class="form-control" style="width:30%"  value="${cliente.usuario}" autocomplete="name"/>
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="precio">email:</label>
-		    <input type="text" required class="form-control" id="email" name="email"  style="width:30%" value="${cliente.email}">
+		    <input type="text" ${edit ? '' : 'disabled' } required class="form-control" id="email" name="email"  style="width:30%" value="${cliente.email}">
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="telefono">telefono:</label>
-		    <input type="text" required class="form-control" id="telefono" name="telefono" style="width:30%" value="${cliente.telefono}">
+		    <input type="text" ${edit ? '' : 'disabled' } required class="form-control" id="telefono" name="telefono" style="width:30%" value="${cliente.telefono}">
 		</div>
 		<div class="form-group">
 		    <label class="control-label" for="precio">dni:</label>
-		    <input type="text" required class="form-control" id="email" name="email"  style="width:30%" value="${cliente.dni}">
+		    <input type="text" ${edit ? '' : 'disabled' } required class="form-control" id="email" name="email"  style="width:30%" value="${cliente.dni}">
 		</div>
-		<button type="submit" class="btn btn-default">Guardar</button>
+		
+		<button type="submit" ${edit ? '' : 'disabled'} class="btn btn-default">Guardar</button>
+		
 		<a type="button" href='clientes' class="btn btn-default">Volver</a>
 		
 	</form>

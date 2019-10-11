@@ -33,8 +33,11 @@ public class LibrosServlet extends HttpServlet {
 			String isbn = Optional.ofNullable(request.getParameter("isbn")).orElse("");
 			
 			switch (action) {
+			case "detail":
+				editAction(isbn, false, request, response);
+				break;
 			case "edit":
-				editAction(isbn, request, response);
+				editAction(isbn, true, request, response);
 				break;
 			case "save":
 				saveAction(request, response);
@@ -69,7 +72,7 @@ public class LibrosServlet extends HttpServlet {
 	}
 
 
-	private void editAction(String isbn, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void editAction(String isbn, boolean edit, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Tema> temas = temaDao.findAll();
 		request.setAttribute("temas", temas);
@@ -79,6 +82,7 @@ public class LibrosServlet extends HttpServlet {
 		} else {
 			Libro libro = libroDao.findById(isbn);
 			request.setAttribute("libro", libro);
+			request.setAttribute("edit", edit);
 			request.setAttribute("title", "Edición de "+libro.getTitulo());
 			
 		}

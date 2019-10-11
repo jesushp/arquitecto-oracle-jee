@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +19,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="ventas")
-@NamedQuery(name="Venta.findAll", query="SELECT v FROM Venta v")
+@NamedQuery(name="Venta.findAll", query="SELECT v FROM Venta v ORDER BY v.fecha desc")
 public class Venta implements Serializable {
 	private static final long serialVersionUID = 1L;
 

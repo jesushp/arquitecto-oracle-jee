@@ -41,6 +41,8 @@ public class Cliente implements Serializable {
 	
 	private String dni;
 	
+	private String usuario;
+	
 	//bi-directional many-to-one association to Venta
 	@OneToMany(mappedBy="cliente", fetch = FetchType.EAGER)
 	private List<Venta> ventas;
@@ -71,10 +73,11 @@ public class Cliente implements Serializable {
 
 
 
-	public Cliente(int idCliente, String email, String password, int telefono, String dni) {
+	public Cliente(int idCliente, String email, String usuario, String password, int telefono, String dni) {
 		super();
 		this.idCliente = idCliente;
 		this.email = email;
+		this.usuario = usuario;
 		this.password = password;
 		this.telefono = telefono;
 		this.dni = dni;
@@ -145,6 +148,19 @@ public class Cliente implements Serializable {
 		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", telefono="
 				+ telefono + ", dni=" + dni + "]";
 	}
+
+
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 

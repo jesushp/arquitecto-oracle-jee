@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apz.curso.ejb.ClienteDao;
 import org.apz.curso.model.Cliente;
+import org.apz.curso.model.Venta;
 import org.apz.curso.service.VentasService;
 
 
@@ -44,8 +45,8 @@ public class VentasServlet extends HttpServlet {
 			int idCliente = Optional.ofNullable(request.getParameter("idCliente")).map(i-> Integer.valueOf(i)).orElse(0);
 			
 			switch (action) {
-				case "ask":
-					procesarPedido(isbn, idCliente, request, response);
+				case "cliente":
+					listClienteAction(idCliente, request, response);
 					break;
 				default:
 					listAction(id, request, response);
@@ -61,36 +62,38 @@ public class VentasServlet extends HttpServlet {
 		
 	}
 	
-	/**
-	 * Insercion en la tabla ventas por mensajeria
-	 * @param isbn
-	 * @throws IOException 
-	 * @throws ServletException 
-	 */
-	private void procesarPedido(String isbn, int idCliente, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void listClienteAction(int idCliente, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//TODO login cliente
-		if (ventasService.procesarPedido(isbn, idCliente)) {
-			logger.info("Se ha procedado el pedido de "+ isbn);
-			request.setAttribute("feedback", "Se ha procedado el pedido de"+ isbn);
-			listAction(idCliente, request, response);
-		}
-		
-	}
-
-	private void listAction(int id, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if (id > 0) {
-			Cliente cliente = clienteDao.findById(id);
+		if (idCliente > 0) {
+			Cliente cliente = clienteDao.findById(idCliente);
 			request.setAttribute("ventas", ventasService.listByCliente(cliente.getIdCliente()));
 			request.setAttribute("title", "Ventas del cliente "+ cliente.getEmail());
 			
 		} else {
-			request.setAttribute("ventas", ventasService.listAll());
-			request.setAttribute("title", "Ventas de los clientes");
+			throw new Exception("Falta el cliente");
 			
 		}
 		request.getRequestDispatcher("ventas/ventas.jsp").forward(request, response);
+		
+	}
+	
+	
+
+	private void listAction(int id, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if (id > 0) {
+			Venta venta = ventasService.findById(id);
+			request.setAttribute("title", "Detalle de venta"+ venta.getIdVEnta());
+			request.setAttribute("venta", venta);
+			request.getRequestDispatcher("ventas/detail.jsp").forward(request, response);
+			
+		} else {
+			request.setAttribute("ventas", ventasService.listAll());
+			request.setAttribute("title", "Ventas de los clientes");
+			request.getRequestDispatcher("ventas/ventas.jsp").forward(request, response);
+			
+		}
+		
 		
 	}
 	

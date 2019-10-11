@@ -3,18 +3,9 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>${title}</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<jsp:include page="../includes/head.jsp"></jsp:include>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-</head>
 <body>
 
 <jsp:include page="../includes/nav.jsp"></jsp:include>
@@ -41,7 +32,8 @@
         <td>${libro.precio}</td>
         <td>${libro.paginas}</td>
         <td><a href="temas?id=${libro.tema.idTema}&action=detail">${libro.tema.tema}</a></td>
-        <td><a href="ventas?action=ask&isbn=${libro.isbn}&idCliente=${sessionScope.usuario.idCliente}">Hacer un pedido |
+       
+        <td><a data-isbn="${libro.isbn}" data-cliente="${sessionScope.usuario.idCliente}" href="#" class="ask-libro" >Hacer un pedido</a> |
         	<a href="libros?action=delete&id=${libro.isbn}">Eliminar</a> | 
         	<a href="libros?action=edit&id=${libro.isbn}">Editar</a>
         </td>

@@ -36,12 +36,13 @@
     	<tr>
         <td>${venta.idVEnta}</td>
         <td><a href="clientes?id=${venta.cliente.idCliente}&action=detail">${venta.cliente.email}</a></td>
-        <td><a href="libros?id=${venta.libro.isbn}&action=detail">${venta.libro.isbn}</a></td>
+        <td><a href="libros?isbn=${venta.libro.isbn}&action=detail">${venta.libro.isbn}</a></td>
         <td> <fmt:formatDate type = "both" value="${venta.fecha}" /> </td>
+        <!-- 
         <td><a href="temas?id=${libro.tema.idTema}&action=detail">${libro.tema.tema}</a></td>
         <td><a href="libros?action=delete&id=${libro.isbn}">Eliminar</a> | 
         	<a href="libros?action=edit&id=${libro.isbn}">Editar</a>
-        </td>
+        </td> -->
       </tr>
   	</c:forEach>
     

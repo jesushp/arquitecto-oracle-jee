@@ -15,7 +15,11 @@
           <ul class="nav navbar-nav">
           	<li><a href="libros">Libros</a></li>
             <li><a href="clientes">Clientes</a></li>
-            <li><a href="cerrar">Cerrar sesión</a></li>
+            <li><a href="ventas?action=cliente&idCliente=${usuario.idCliente}">Ventas</a></li>
+          </ul>
+           <ul class="nav navbar-nav pull-right">
+           <li><a href="clientes?action=detail&id=${usuario.idCliente}">${usuario.usuario}</a></li>
+          	<li><a href="cerrar">Cerrar sesión</a></li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>
