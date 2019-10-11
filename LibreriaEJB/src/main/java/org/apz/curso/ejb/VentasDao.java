@@ -14,5 +14,7 @@ public interface VentasDao {
 	
 	void add(Venta venta);
 	
+	Venta findById(int id);
+	
 }
 
