@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <artifactId>HolaEJB</artifactId>
-  <description>Intro EJB</description>
+  <description>Introduccion a EJB 3.x y a al api JNDI</description>
   <packaging>war</packaging>
   <parent>
     <groupId>org.apz.curso</groupId>
