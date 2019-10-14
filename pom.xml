@@ -35,6 +35,9 @@
     <!-- Probando EJB Asincronos  -->
     <module>async-ejb</module>
     
+    <!-- probando JSF 2.2 + Mojarra  -->
+    <module>admin-libreria-jsf</module>
+    
     <!--  proyectos oracle -->
     <module>websockets</module>
     <module>web-media-manager</module>
